@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema(
+const adminSchema = new mongoose.Schema(
   {
 	 name: {
       type: String,
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema(
       minLength: 6,
     },
     mobile:{
-		    type:Number,
+		    type:String,
 		    required:true
 		},
     profiePic:{
@@ -32,4 +32,5 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const User = mongoose.model("User", userSchema);
+export const Admin = mongoose.model("Admin", adminSchema);
+
