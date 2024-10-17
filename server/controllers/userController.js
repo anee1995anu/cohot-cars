@@ -110,3 +110,18 @@ export const userUpdate=async(req,res,next)=>{
         
     }
 }
+
+
+export const allUsers = async (req, res, next) => {
+    try {
+
+        
+
+        const usersData = await User.find().select('-password')
+
+        res.json({ success: true, message: "users profile fetched", data:usersData });
+    } catch (error) {
+        console.log(error);
+        res.status(error.statusCode || 500).json(error.message || 'Internal server error')
+    }
+};

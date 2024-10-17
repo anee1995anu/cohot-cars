@@ -1,6 +1,7 @@
 import e from "express";
-import { checkUser, userLogin, userLogout, userProfile, userSignup, userUpdate } from "../controllers/userController.js";
+import { allUsers, checkUser, userLogin, userLogout, userProfile, userSignup, userUpdate } from "../controllers/userController.js";
 import { authUser } from "../middlewares/authUser.js";
+import { authAdmin } from "../middlewares/authAdmin.js";
 const router = e.Router();
 
 router.post("/sign-up", userSignup);
@@ -16,6 +17,7 @@ router.delete("/profile-delete",authUser, (req, res, next) => {});
 router.post("/log-out", authUser, userLogout);
 
 router.get("/check-user", authUser,checkUser);
+router.get("/all-users",authAdmin,allUsers)
 
 
 
