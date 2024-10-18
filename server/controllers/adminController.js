@@ -51,7 +51,7 @@ export const adminLogin = async (req, res, next) => {
             return res.status(401).json({ message: "admin not autherized" });
         }
 
-        const token = generateToken(adminExist._id);
+        const token = generateToken(adminExist._id,"admin");
 
         res.cookie("token", token);
         res.json({ success: true, message: "admin login successfull" });
